@@ -20,8 +20,11 @@ import static java.awt.SystemColor.text;
 @Service
 public class FuelStationService {
     @Autowired private RabbitTemplate rabbitTemplate;
+    private static final Logger LOGGER = LoggerFactory.getLogger(FuelStationService.class);
+
     public void startDataGatheringJob(String customerId, String queueName, String brokerUrl) {
         System.out.println("customerId: " + customerId); //For Testing Purpose
+
 //geht auch nicht rabbitTemplate.convertAndSend(
 //                "exchange-name", "routing-key", customerId);
         ConnectionFactory factory = new ConnectionFactory();
@@ -35,7 +38,10 @@ public class FuelStationService {
             channel.basicPublish("", queueName, null, customerId.getBytes());
         } catch (Exception e) {
             e.printStackTrace();
-        }  // Implement the logic to send a message to the Data Collection Dispatcher via RabbitMQ
+        }
+        //Wurde eine Nachricht gepusht?
+        LOGGER.info(String.format("Message sent-> %s", customerId));
+        // Implement the logic to send a message to the Data Collection Dispatcher via RabbitMQ
     }
 
 
