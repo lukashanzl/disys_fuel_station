@@ -1,16 +1,47 @@
 package at.fuelstation.fuelstationapi;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import com.rabbitmq.client.Channel;
+import com.rabbitmq.client.Connection;
+import com.rabbitmq.client.ConnectionFactory;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+import java.awt.SystemColor;
+
+
 
 import java.util.Optional;
 
+import static java.awt.SystemColor.text;
+
 @Service
 public class FuelStationService {
-    public void startDataGatheringJob(String customerId) {
-        System.out.println("customerId: "+customerId); //For Testing Purpose
+    @Autowired private RabbitTemplate rabbitTemplate;
+    private static final Logger LOGGER = LoggerFactory.getLogger(FuelStationService.class);
+
+    public void startDataGatheringJob(String customerId, String queueName, String brokerUrl) {
+        System.out.println("customerId: " + customerId); //For Testing Purpose
+
+//geht auch nicht rabbitTemplate.convertAndSend(
+//                "exchange-name", "routing-key", customerId);
+        ConnectionFactory factory = new ConnectionFactory();
+        factory.setHost(brokerUrl);
+
+        try (
+                Connection connection = factory.newConnection();
+                Channel channel = connection.createChannel()
+        ) {
+            channel.queueDeclare(queueName, false, false, false, null);
+            channel.basicPublish("", queueName, null, customerId.getBytes());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        //Wurde eine Nachricht gepusht?
+        LOGGER.info(String.format("Message sent-> %s", customerId));
         // Implement the logic to send a message to the Data Collection Dispatcher via RabbitMQ
-        // Example:
-        // rabbitTemplate.convertAndSend("exchange", "routingKey", customerId);
     }
 
 

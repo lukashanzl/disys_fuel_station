@@ -46,3 +46,9 @@ services:
     ports:
       - '30003:5672'
       - '30083:15672'
+    networks:
+        - rabbitmq_go_net
+
+networks:
+  rabbitmq_go_net:
+    driver: bridge
