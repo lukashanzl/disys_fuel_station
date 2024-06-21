@@ -40,6 +40,7 @@ public class FuelStationController {
         invoiceService.startDataGatheringJob(customerId,"queue_name",BROKER_URL);
         return ResponseEntity.ok("Invoice generation started for customer ID: " + customerId);
     }
+
     @GetMapping("/{customerId}")
     public ResponseEntity<?> getInvoice(@PathVariable String customerId) {
         // Implement the logic to fetch the generated PDF invoice and return it.
