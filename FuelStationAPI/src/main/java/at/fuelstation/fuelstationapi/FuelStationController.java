@@ -1,6 +1,7 @@
 package at.fuelstation.fuelstationapi;
 
 import at.fuelstation.fuelstationapi.FuelStationService;
+import at.fuelstation.fuelstationapi.communication.MessageSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +21,7 @@ import java.nio.charset.StandardCharsets;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 
 @RestController
@@ -27,26 +29,21 @@ import java.util.List;
 public class FuelStationController {
 
     private final static String BROKER_URL = "localhost";
+
     @Autowired
     private FuelStationService invoiceService;
 
-    @GetMapping("/hello")
-    public String hello() {
-        return "Hello, World!";
-    }
-
     @PostMapping("/{customerId}")
     public ResponseEntity<String> generateInvoice(@PathVariable String customerId) throws UnsupportedEncodingException {
-        invoiceService.startDataGatheringJob(customerId,"queue_name",BROKER_URL);
+        invoiceService.startDataGatheringJob(customerId);
         return ResponseEntity.ok("Invoice generation started for customer ID: " + customerId);
     }
 
+    /*
     @GetMapping("/{customerId}")
     public ResponseEntity<?> getInvoice(@PathVariable String customerId) {
-        // Implement the logic to fetch the generated PDF invoice and return it.
-        return invoiceService.getInvoice(customerId)
-                .map(invoice -> ResponseEntity.ok(invoice))
-                .orElse(ResponseEntity.status(404).body("Invoice not available for customer ID: " + customerId));
+        // fetch PDF
     }
+    */
 
 }
