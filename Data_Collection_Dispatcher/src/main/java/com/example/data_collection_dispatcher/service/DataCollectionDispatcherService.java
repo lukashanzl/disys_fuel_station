@@ -43,17 +43,22 @@ public class DataCollectionDispatcherService extends BaseService {
             }
 
 
+
         }catch (SQLException e){
             return "error";
         }
 
         // send data to rabbitMQ queue
+
         String queueInput = Arrays.toString(dbResult);
+        System.out.println(queueInput);
+
         String dcrInput = "DataCollectionDispatcher started Job with id: " + jobId;
 
         Producer.send(queueInput,"StationDataCollector",BROKER_URL);
-
+        System.out.println("Message sent to the Station Data Collector"+queueInput);
         Producer.send(dcrInput,"DataCollectionReceiver",BROKER_URL);
+        System.out.println("Message sent to the DataCollectionReceiver"+dcrInput);
 
 
         return "ok";
