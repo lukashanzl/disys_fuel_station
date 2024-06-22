@@ -3,10 +3,6 @@ package at.fuelstation.fuelstationapi.dto;
 public class Invoice {
     public String customerName;
     public int customerID;
-    public String customerAddress;
-    public int invoiceAmount;
-    public String invoiceDate;
-
     public Invoice(){
 
     }

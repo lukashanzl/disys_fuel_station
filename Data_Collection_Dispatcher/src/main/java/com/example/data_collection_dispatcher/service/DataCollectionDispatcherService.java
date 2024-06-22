@@ -44,7 +44,7 @@ public class DataCollectionDispatcherService extends BaseService {
                 //dbResult[idx] = new Station(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4));
 
                 // send data to rabbitMQ queue
-                String queueInput = rs.getString(1) + "," + rs.getString(2) + "," + rs.getString(3) + "," + rs.getString(4) + ";";
+                String queueInput = input + "," + rs.getString(1) + "," + rs.getString(2) + "," + rs.getString(3) + "," + rs.getString(4);
                 Producer.send(queueInput,"StationDataCollector",BROKER_URL);
                 System.out.println("Message sent to the Station Data Collector: "+queueInput);
             }
