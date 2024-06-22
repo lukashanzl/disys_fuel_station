@@ -28,7 +28,9 @@ public class DataCollectionDispatcherService extends BaseService {
 
         System.out.println("DataCollectionDispatcherService (" + jobId + ") executing " + input);
 
-        Station[] dbResult = new Station[10];
+        String dcrInput = "DataCollectionDispatcher started Job with id: " + jobId;
+        Producer.send(dcrInput,"DataCollectionReceiver",BROKER_URL);
+        System.out.println("Message sent to the DataCollectionReceiver"+dcrInput);
 
         try(Connection conn = connect()){
             String sql = "SELECT id, db_url, lat, lng FROM station";
@@ -39,27 +41,16 @@ public class DataCollectionDispatcherService extends BaseService {
             int idx = 0;
 
             while (rs.next()){
-                dbResult[idx] = new Station(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4));
+                //dbResult[idx] = new Station(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4));
+
+                // send data to rabbitMQ queue
+                String queueInput = rs.getString(1) + "," + rs.getString(2) + "," + rs.getString(3) + "," + rs.getString(4) + ";";
+                Producer.send(queueInput,"StationDataCollector",BROKER_URL);
+                System.out.println("Message sent to the Station Data Collector: "+queueInput);
             }
-
-
-
         }catch (SQLException e){
             return "error";
         }
-
-        // send data to rabbitMQ queue
-
-        String queueInput = Arrays.toString(dbResult);
-        System.out.println(queueInput);
-
-        String dcrInput = "DataCollectionDispatcher started Job with id: " + jobId;
-
-        Producer.send(queueInput,"StationDataCollector",BROKER_URL);
-        System.out.println("Message sent to the Station Data Collector"+queueInput);
-        Producer.send(dcrInput,"DataCollectionReceiver",BROKER_URL);
-        System.out.println("Message sent to the DataCollectionReceiver"+dcrInput);
-
 
         return "ok";
     }
