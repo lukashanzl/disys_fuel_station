@@ -22,6 +22,18 @@ public class HelloController {
     @FXML
     private Label statusLabel;
 
+
+    @FXML
+    public void initialize() {
+        customerIdField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("[123]?")) {
+                customerIdField.setText(oldValue);
+                statusLabel.setText("Customer ID must be 1, 2, or 3.");
+            } else {
+                statusLabel.setText("");
+            }
+        });
+    }
     @FXML
     protected void onGenerateInvoiceButtonClick() {
         String customerId = customerIdField.getText();

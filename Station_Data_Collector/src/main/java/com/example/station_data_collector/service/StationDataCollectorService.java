@@ -30,6 +30,11 @@ public class StationDataCollectorService extends BaseService {
         //Format of the Message String customerID,stationId,dbUrl,lat,lng
 
         String[] parts = input.split(",");
+
+        if (parts.length != 5) {
+            System.out.println("Received message: " + input);
+            return "";
+        }
         String output="";
         String customerId = parts[0];
         String stationId = parts[1];
@@ -50,16 +55,19 @@ public class StationDataCollectorService extends BaseService {
                 stationData.setCustomerId(rs.getString("customer_id"));
                 System.out.println("ResultSet:");
                 do {
-                    // ChargeID,kwh,CustomerID
+                    // stationID,CustomerId,ChargeID,kwh
+                    output += stationId+",";
+                    output += rs.getString("customer_id")+",";
                     output += rs.getString("id")+",";
-                    output += rs.getDouble("kwh")+",";
-                    output += rs.getString("customer_id")+";";
+                    output += rs.getDouble("kwh")+";";
                 } while (rs.next());
                 System.out.println(output);
                 Producer.send(output, "DataCollectionReceiver", BROKER_URL);
                 System.out.println("Sent collected data for Customer " + customerId + " at Station " + stationId);
             } else {
+                output = "No data found for customer " + customerId;
                 System.out.println("No data found for customer " + customerId);
+                Producer.send("output", "DataCollectionReceiver", BROKER_URL);
                 return "error";
             }
         } catch (SQLException e) {
