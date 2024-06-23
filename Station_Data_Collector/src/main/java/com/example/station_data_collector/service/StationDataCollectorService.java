@@ -67,7 +67,7 @@ public class StationDataCollectorService extends BaseService {
             } else {
                 output = "No data found for customer " + customerId;
                 System.out.println("No data found for customer " + customerId);
-                Producer.send("output", "DataCollectionReceiver", BROKER_URL);
+                Producer.send(output, "DataCollectionReceiver", BROKER_URL);
                 return "error";
             }
         } catch (SQLException e) {
