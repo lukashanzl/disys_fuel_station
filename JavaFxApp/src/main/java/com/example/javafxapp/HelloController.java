@@ -23,6 +23,17 @@ public class HelloController {
     private Label statusLabel;
 
 
+    @FXML
+    public void initialize() {
+        customerIdField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\d{0,4}") || (newValue.length() > 0 && Integer.parseInt(newValue) > 10000)) {
+                customerIdField.setText(oldValue);
+                statusLabel.setText("Customer ID must be a number between 0 and 10000.");
+            } else {
+                statusLabel.setText("");
+            }
+        });
+    }
 
     @FXML
     protected void onGenerateInvoiceButtonClick() {
