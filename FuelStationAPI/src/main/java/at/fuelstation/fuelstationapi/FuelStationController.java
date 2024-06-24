@@ -39,11 +39,10 @@ public class FuelStationController {
         return ResponseEntity.ok("Invoice generation started for customer ID: " + customerId);
     }
 
-    /*
+
     @GetMapping("/{customerId}")
-    public ResponseEntity<?> getInvoice(@PathVariable String customerId) {
-        // fetch PDF
+    public String getInvoice(@PathVariable String customerId) {
+        return "jobId.pdf";
     }
-    */
 
 }

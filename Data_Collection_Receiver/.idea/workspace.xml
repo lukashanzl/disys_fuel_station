@@ -5,65 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b42bfe37-3d06-4065-bd52-b9eae035fe38" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../Data_Collection_Dispatcher/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../PdfGenerator/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../PdfGenerator/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../PdfGenerator/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../PdfGenerator/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../PdfGenerator/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../PdfGenerator/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Station_Data_Collector/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Station_Data_Collector/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Station_Data_Collector/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Station_Data_Collector/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Station_Data_Collector/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Station_Data_Collector/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Data_Collection_Dispatcher/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Data_Collection_Dispatcher/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Data_Collection_Dispatcher/src/main/java/com/example/data_collection_dispatcher/communication/Consumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Data_Collection_Dispatcher/src/main/java/com/example/data_collection_dispatcher/communication/Consumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Data_Collection_Dispatcher/src/main/java/com/example/data_collection_dispatcher/communication/Producer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Data_Collection_Dispatcher/src/main/java/com/example/data_collection_dispatcher/communication/Producer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Data_Collection_Dispatcher/src/main/java/com/example/data_collection_dispatcher/service/DataCollectionDispatcherService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Data_Collection_Dispatcher/src/main/java/com/example/data_collection_dispatcher/service/DataCollectionDispatcherService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Data_Collection_Dispatcher/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Data_Collection_Dispatcher/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Data_Collection_Dispatcher/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Data_Collection_Dispatcher/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Data_Collection_Dispatcher/target/classes/com/example/data_collection_dispatcher/DataCollectionDispatcherApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Data_Collection_Dispatcher/target/classes/com/example/data_collection_dispatcher/RabbitMQConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Data_Collection_Dispatcher/target/classes/com/example/data_collection_dispatcher/RabbitMQConsumer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Data_Collection_Dispatcher/target/classes/com/example/data_collection_dispatcher/communication/Consumer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Data_Collection_Dispatcher/target/classes/com/example/data_collection_dispatcher/communication/Consumer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Data_Collection_Dispatcher/target/classes/com/example/data_collection_dispatcher/communication/Producer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Data_Collection_Dispatcher/target/classes/com/example/data_collection_dispatcher/communication/Producer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Data_Collection_Dispatcher/target/classes/com/example/data_collection_dispatcher/service/DataCollectionDispatcherService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Data_Collection_Dispatcher/target/classes/com/example/data_collection_dispatcher/service/DataCollectionDispatcherService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/data_collection_receiver/communication/Consumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/data_collection_receiver/communication/Consumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/data_collection_receiver/communication/Producer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/data_collection_receiver/communication/Producer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/data_collection_receiver/service/DataCollectionReceiverService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/data_collection_receiver/service/DataCollectionReceiverService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/data_collection_receiver/service/DataCollectionReceiverService2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/data_collection_receiver/service/DataCollectionReceiverService2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/data_collection_receiver/communication/Consumer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/data_collection_receiver/communication/Consumer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/data_collection_receiver/communication/Producer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/data_collection_receiver/communication/Producer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/data_collection_receiver/service/BaseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/data_collection_receiver/service/BaseService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/data_collection_receiver/service/DataCollectionReceiverService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/data_collection_receiver/service/DataCollectionReceiverService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/data_collection_receiver/service/DataCollectionReceiverService2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/data_collection_receiver/service/DataCollectionReceiverService2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FuelStationAPI/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../FuelStationAPI/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FuelStationAPI/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../FuelStationAPI/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FuelStationAPI/target/classes/at/fuelstation/fuelstationapi/FuelStationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../FuelStationAPI/target/classes/at/fuelstation/fuelstationapi/FuelStationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FuelStationAPI/target/classes/at/fuelstation/fuelstationapi/communication/MessageSender.class" beforeDir="false" afterPath="$PROJECT_DIR$/../FuelStationAPI/target/classes/at/fuelstation/fuelstationapi/communication/MessageSender.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PdfGenerator/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PdfGenerator/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PdfGenerator/src/main/java/com/example/Pdf_Generator/communication/Consumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PdfGenerator/src/main/java/com/example/Pdf_Generator/communication/Consumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PdfGenerator/src/main/java/com/example/Pdf_Generator/communication/Producer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PdfGenerator/src/main/java/com/example/Pdf_Generator/communication/Producer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PdfGenerator/src/main/java/com/example/Pdf_Generator/service/PdfService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PdfGenerator/src/main/java/com/example/Pdf_Generator/service/PdfService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PdfGenerator/target/classes/com/example/Pdf_Generator/communication/Consumer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../PdfGenerator/target/classes/com/example/Pdf_Generator/communication/Consumer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PdfGenerator/target/classes/com/example/Pdf_Generator/communication/Producer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../PdfGenerator/target/classes/com/example/Pdf_Generator/communication/Producer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PdfGenerator/target/classes/com/example/Pdf_Generator/service/BaseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../PdfGenerator/target/classes/com/example/Pdf_Generator/service/BaseService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PdfGenerator/target/classes/com/example/Pdf_Generator/service/PdfService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../PdfGenerator/target/classes/com/example/Pdf_Generator/service/PdfService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Station_Data_Collector/src/main/java/com/example/station_data_collector/communication/Consumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Station_Data_Collector/src/main/java/com/example/station_data_collector/communication/Consumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Station_Data_Collector/src/main/java/com/example/station_data_collector/communication/Producer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Station_Data_Collector/src/main/java/com/example/station_data_collector/communication/Producer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Station_Data_Collector/src/main/java/com/example/station_data_collector/service/StationDataCollectorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Station_Data_Collector/src/main/java/com/example/station_data_collector/service/StationDataCollectorService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Station_Data_Collector/target/classes/com/example/station_data_collector/communication/Consumer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Station_Data_Collector/target/classes/com/example/station_data_collector/communication/Consumer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Station_Data_Collector/target/classes/com/example/station_data_collector/communication/Producer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Station_Data_Collector/target/classes/com/example/station_data_collector/communication/Producer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Station_Data_Collector/target/classes/com/example/station_data_collector/service/BaseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Station_Data_Collector/target/classes/com/example/station_data_collector/service/BaseService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Station_Data_Collector/target/classes/com/example/station_data_collector/service/StationDataCollectorService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Station_Data_Collector/target/classes/com/example/station_data_collector/service/StationDataCollectorService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data_Collection_Dispatcher/src/test/java/com/example/data_collection_dispatcher/service/DataCollectionDispatcherServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data_Collection_Dispatcher/target/test-classes/com/example/data_collection_dispatcher/DataCollectionDispatcherApplicationTests.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data_Collection_Dispatcher/target/test-classes/com/example/data_collection_dispatcher/service/DataCollectionDispatcherServiceTests.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/example/data_collection_receiver/service/DataCollectionReceiverServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/com/example/data_collection_receiver/service/DataCollectionReceiverServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PdfGenerator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PdfGenerator/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Station_Data_Collector/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Station_Data_Collector/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Station_Data_Collector/target/test-classes/com/example/station_data_collector/StationDataCollectorApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Station_Data_Collector/target/test-classes/com/example/station_data_collector/StationDataCollectorApplicationTests.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -79,10 +41,13 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
+    "JUnit.DataCollectionReceiverServiceTest.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "git-widget-placeholder": "develop",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "F:/02_FH_Technikum/SS2024/DISYS/Project/Data_Collection_Receiver",
+    "last_opened_file_path": "F:/02_FH_Technikum/SS2024/DISYS/Project/FuelStationAPI",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -91,7 +56,15 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.example.data_collection_receiver.service" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.DataCollectionReceiverServiceTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.data_collection_receiver.Main" />
       <module name="Data_Collection_Receiver" />
@@ -105,8 +78,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DataCollectionReceiverServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Data_Collection_Receiver" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.data_collection_receiver.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.data_collection_receiver.service" />
+      <option name="MAIN_CLASS_NAME" value="com.example.data_collection_receiver.service.DataCollectionReceiverServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.DataCollectionReceiverServiceTest" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -128,7 +117,8 @@
       <option name="presentableId" value="Default" />
       <updated>1719182233283</updated>
       <workItem from="1719182234330" duration="831000" />
-      <workItem from="1719225129107" duration="4988000" />
+      <workItem from="1719225129107" duration="5171000" />
+      <workItem from="1719232994839" duration="160000" />
     </task>
     <servers />
   </component>
