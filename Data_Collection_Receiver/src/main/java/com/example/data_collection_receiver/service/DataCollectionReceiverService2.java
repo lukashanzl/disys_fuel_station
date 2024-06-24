@@ -15,7 +15,7 @@ public class DataCollectionReceiverService2 extends BaseService{
     public DataCollectionReceiverService2 (String inDestination, String outDestination, String brokerUrl) {
         super(inDestination, outDestination, brokerUrl);
         this.id = UUID.randomUUID().toString();
-        System.out.println("DataCollectionReceiverService (" + this.id + ") started... ");
+        System.out.println("DataCollectionReceiverService2 (" + this.id + ") started... ");
     }
 
     @Override

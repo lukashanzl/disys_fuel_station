@@ -18,7 +18,7 @@ public class PdfService extends BaseService {
 
     private final String id;
 
-    private final static String DB_CONNECTION = "jdbc:postgresql://localhost:30001/postgres?user=postgres&password=postgres";
+    private final static String DB_CONNECTION = "jdbc:postgresql://localhost:30001/customerdb?user=postgres&password=postgres";
 
     public PdfService(String inDestination, String outDestination, String brokerUrl) {
         super(inDestination, outDestination, brokerUrl);
@@ -34,17 +34,17 @@ public class PdfService extends BaseService {
         String jobId = UUID.randomUUID().toString();
 
 
+        System.out.println("input:");
         System.out.println(input);
-        String[] parts = input.split("|");
-        if (parts.length != 3) {
-            return "";
+
+        if(input.indexOf(",")<1){
+            return "ok";
         }
 
+        String sumPart = input.split(",")[0];
+        String customerId = input.split(",")[1];
 
-
-        String textPart = parts[0];
-        String sumPart = parts[1];
-        String customerId = parts[2];
+        String textPart = "Summe:  " + sumPart;
         String customer = "";
 
 
@@ -57,6 +57,7 @@ public class PdfService extends BaseService {
 
             while (rs.next()) {
                 customer = rs.getString("first_name") + " " + rs.getString("last_name");
+                System.out.println("Customer:");
                 System.out.println(customer);
             }
 

@@ -8,7 +8,7 @@ import java.util.UUID;
 
 public class DataCollectionDispatcherService extends BaseService {
 
-    private final static String DB_CONNECTION = "jdbc:postgresql://localhost:30002/postgres?user=postgres&password=postgres";
+    private final static String DB_CONNECTION = "jdbc:postgresql://localhost:30002/stationdb?user=postgres&password=postgres";
 
     private final static String BROKER_URL = "localhost";
 
@@ -30,21 +30,28 @@ public class DataCollectionDispatcherService extends BaseService {
 
         String dcrInput = "DataCollectionDispatcher started Job with id: " + jobId;
         Producer.send(dcrInput,"DataCollectionReceiver",BROKER_URL);
-        System.out.println("Message sent to the DataCollectionReceiver"+dcrInput);
+        System.out.println("Message sent to the DataCollectionReceiver: "+dcrInput);
 
         try(Connection conn = connect()){
+            //
+            Statement stmt = conn.createStatement();
+            //
+
             String sql = "SELECT id, db_url, lat, lng FROM station";
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
 
-            ResultSet rs = preparedStatement.executeQuery();
-
-            int idx = 0;
+            //ResultSet rs = preparedStatement.executeQuery(sql);
+            ResultSet rs = stmt.executeQuery(sql);
 
             while (rs.next()){
                 //dbResult[idx] = new Station(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4));
 
                 // send data to rabbitMQ queue
-                String queueInput = input + "," + rs.getString(1) + "," + rs.getString(2) + "," + rs.getString(3) + "," + rs.getString(4);
+
+                String queueInput = input + "," + rs.getString("id") + "," + rs.getString("db_url") + "," + rs.getString("lat") + "," + rs.getString("lng");
+
+                System.out.println("queueInput: " + queueInput);
+
                 Producer.send(queueInput,"StationDataCollector",BROKER_URL);
                 System.out.println("Message sent to the Station Data Collector: "+queueInput);
             }

@@ -24,66 +24,37 @@ public class DataCollectionReceiverService extends BaseService {
         System.out.println("DataCollectionReceiverService (" + this.id + ") started... ");
     }
 
+    String output = "";
+    String custId = "";
+    double sum = 0;
+
     @Override
     protected String executeInternal(String input) {
         System.out.println("DataCollectionReceiverService executing");
+        System.out.println("Input: " + input);
 
-        double kwhSUM = 0;
-        String customerID = "";
-        int i = 0;
-
-        Map<String, Map<String, Double>> stationData = new HashMap<>();
-
-        // split input
-        String[] records = input.split(";");
-        for (String record : records) {
-            String[] parts = record.split(",");
-            if (parts.length != 4) {
-                System.err.println("Invalid message format");
-                System.err.println("Received message: " + record);
-                continue; // skip
-            }
-
-            // stationID, customerID, chargeID, kwh
-            String stationId = parts[0];
-            customerID = parts[1];
-            String chargeId = parts[2];
-            double kwh = Double.parseDouble(parts[3]);
-            kwhSUM += kwh;
-
-            stationData
-                    .computeIfAbsent(stationId, k -> new HashMap<>())
-                    .put(chargeId, kwh);
-
-            i++;
+        if (input.lastIndexOf(",")<6){
+            return "ok";
         }
 
-        // output string
-        StringBuilder result = new StringBuilder();
-        for (Map.Entry<String, Map<String, Double>> stationEntry : stationData.entrySet()) {
-            String stationId = stationEntry.getKey();
-            result.append(":\n").append("Station ").append(stationId).append(":\n");
+        sum += Double.parseDouble(input.split(",")[1]);
+        custId = input.split(",")[2];
 
-            Map<String, Double> charges = stationEntry.getValue();
-            for (Map.Entry<String, Double> chargeEntry : charges.entrySet()) {
-                String chargeId = chargeEntry.getKey();
-                double kwh = chargeEntry.getValue();
-                result.append("    Charge ").append(chargeId).append(": ").append(kwh).append(" kw/h\n");
-            }
-        }
-
-        result.append("|").append(kwhSUM).append("|").append(customerID);
-        combinedResult.append(result).append("\n");
-
-        messageCount++;
-
-        if (messageCount == 3) {
-            Producer.send(combinedResult.toString(), "PdfGenerator", BROKER_URL);
-            combinedResult.setLength(0); // Clear the StringBuilder
-            messageCount = 0; // Reset the message count
-        }
+        this.messageCount++;
+        checkMessage();
 
         return "ok";
+    }
+
+    private void checkMessage() {
+        if (messageCount == 3){
+            //send
+            output = sum + "," + custId;
+            Producer.send(output,"PdfGenerator",BROKER_URL);
+            this.messageCount = 0;
+            this.output = "";
+            this.sum = 0;
+        }
     }
 
     private Connection connect() throws SQLException {
