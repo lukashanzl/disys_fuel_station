@@ -21,6 +21,8 @@ public class StationDataCollectorService extends BaseService {
         System.out.println("StationDataCollectorService (" + this.id + ") started... ");
     }
 
+
+
     @Override
     protected String executeInternal(String input) {
         System.out.println(input);
@@ -35,50 +37,35 @@ public class StationDataCollectorService extends BaseService {
             System.out.println("Received message: " + input);
             return "";
         }
-        String output="";
         String customerId = parts[0];
         String stationId = parts[1];
-        String dbUrl = "jdbc:postgresql://"+parts[2]+"/postgres?user=postgres&password=postgres";
+        String dbUrl = "jdbc:postgresql://"+parts[2]+"/stationdb?user=postgres&password=postgres";
         System.out.println(dbUrl);
+
+        String output = "";
 
         StationData stationData = new StationData();
         try (Connection conn = connectToStationDb(dbUrl)) {
-            String sql = "SELECT id, kwh, customer_id FROM charge WHERE customer_id = ?";
+            String sql = "SELECT  sum(kwh) as sum, customer_id FROM charge WHERE customer_id = ? group by customer_id";
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
             preparedStatement.setInt(1, Integer.parseInt(customerId));
             ResultSet rs = preparedStatement.executeQuery();
 
-            if (rs.next()) {
-
-                stationData.setId(rs.getString("id"));
-                stationData.setKwh(rs.getDouble("kwh"));
-                stationData.setCustomerId(rs.getString("customer_id"));
-                System.out.println("ResultSet:");
-                do {
-                    // stationID,CustomerId,ChargeID,kwh
-                    output += stationId+",";
-                    output += rs.getString("customer_id")+",";
-                    output += rs.getString("id")+",";
-                    output += rs.getDouble("kwh")+";";
-                } while (rs.next());
-                System.out.println(output);
-                Producer.send(output, "DataCollectionReceiver", BROKER_URL);
-                System.out.println("Sent collected data for Customer " + customerId + " at Station " + stationId);
-            } else {
-                output = "No data found for customer " + customerId;
-                System.out.println("No data found for customer " + customerId);
-                Producer.send(output, "DataCollectionReceiver", BROKER_URL);
-                return "error";
+            while (rs.next()) {
+                output = stationId + "," + rs.getString("sum") + "," + rs.getString("customer_id");
+                Producer.send(output,"DataCollectionReceiver",BROKER_URL);
             }
+
         } catch (SQLException e) {
             e.printStackTrace();
             return "error";
         }
 
 
-
         return "ok";
     }
+
+
     //DB
     private Connection connectToStationDb(String dbUrl) throws SQLException {
         return DriverManager.getConnection(dbUrl);

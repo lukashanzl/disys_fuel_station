@@ -1,9 +1,6 @@
 package com.example.data_collection_dispatcher.communication;
 
-import com.rabbitmq.client.Channel;
-import com.rabbitmq.client.Connection;
-import com.rabbitmq.client.ConnectionFactory;
-import com.rabbitmq.client.DeliverCallback;
+import com.rabbitmq.client.*;
 
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
@@ -12,7 +9,11 @@ public class Consumer {
     public static void receive(String queueName, long timeout, String brokerUrl, DeliverCallback deliverCallback) throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost(brokerUrl);
-        Connection connection = factory.newConnection();
+
+        Address[] addr = new Address[1];
+        addr[0] = new Address("localhost",30003);
+
+        Connection connection = factory.newConnection(addr);
         Channel channel = connection.createChannel();
         channel.queueDeclare(queueName, false, false, false, null);
         channel.basicConsume(queueName, true, deliverCallback, consumerTag -> {});
